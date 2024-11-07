@@ -1,19 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PasswordManager from './PasswordManager';
-import PasswordDetails from './PasswordDetails';
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
 
-const App = () => {
+export default function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
-    <Router>
-      <div className="app-container">
-        <Routes>
-          <Route path="/" element={<PasswordManager />} />
-          <Route path="/details/:id" element={<PasswordDetails />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+    </div>
   );
-};
-
-export default App;
+}
